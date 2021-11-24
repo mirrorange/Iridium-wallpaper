@@ -1,9 +1,9 @@
 function weather()
 {
-  var wea = document.getElementById('wea_text')
   fetch(weatherurl)
   .then(response => response.json())
   .then(data => {
+    wea = document.getElementById("wea_text");
     wea.innerText = data.wea + " " + data.win + data.win_speed + " " + data.tem + "℃"
     if((data.tem <= snowtmp && !snow.isstarted && allowsnow) || forcerain)
     {
@@ -27,13 +27,20 @@ function weather()
     }
   })
   .catch(console.error);
+}
+
+function realtimerain()
+{
   fetch(realtimerainurl)
   .then(response => response.json())
   .then(data => {
-    wea.innerText += " (" + data.msg + ")"
+    rai = document.getElementById("rai_text");
+    rai.innerText = " (" + data.msg + ")"
   })
-  .catch(console.error)
+  .catch(console.error);
 }
 
+realtimerain();
 weather();
+self.setInterval("realtimerain()",900000);
 self.setInterval("weather()",300000);

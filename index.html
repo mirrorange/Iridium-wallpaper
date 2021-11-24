@@ -19,11 +19,14 @@
       <div class="mdl-layout__header-row">
         <!-- Title -->
         <span class="mdl-layout-title">Iridium ~ wallpaper for class18</span>
+        <div class="mdl-layout-spacer"></div>
+        <span class="mdl-layout-title" id="countdown"></span>
         <!-- Add spacer, to align navigation to the right -->
         <div class="mdl-layout-spacer"></div>
         <nav class="mdl-navigation">
           <!-- <a href="#" class="mdl-navigation__link" id="calculator" onclick="perspective('1');return false;">图形计算器</a> -->
-          <p class="mdl-navigation__link" id="wea_text"></p>
+          <p class="mdl-navigation__link" id="wea_text" title="城市预报，精确至惠州市"></p>
+          <p class="mdl-navigation__link" id="rai_text" title="云图预报，精确至惠中校门口"></p>
         </nav>
       </div>
     </header>
@@ -39,10 +42,11 @@
     </main>
   </div>
   <script src="./js/config.js"></script>
-  <script src="./js/weather.js"></script>
   <script src="./js/hitokoto.js"></script>
   <script src="./js/snow.js"></script>
   <script src="./js/glsl-canvas.min.js"></script>
   <script src="./js/rain.js"></script>
+  <script src="./js/weather.js"></script>
+  <script src="./js/countdown.js"></script>
 </body>
 </html>
