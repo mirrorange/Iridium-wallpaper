@@ -1,7 +1,7 @@
 hitokoto()
 function hitokoto()
 {
-  fetch('https://v1.hitokoto.cn?&c=d&c=i')
+  fetch(hitokotourl)
     .then(response => response.json())
     .then(data => {
       const hitokoto = document.getElementById('hitokoto_text')

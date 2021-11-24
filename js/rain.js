@@ -250,21 +250,6 @@ var frag = `// Heartfelt - by Martijn Steinrucken aka BigWings - 2017
       gl_FragColor = vec4(col*u_brightness, 1);
   }`
 
-var opt = {
-  "blurIntensity":0.5,
-  "blurQuality":16,
-  "rainIntensity":0.4,
-  "rainSpeed":0.25,
-  "brightness":0.8,
-  "rainNormal":0.5,
-  "rainZoom":2.6,
-  "overlayColor":"#C0C0C0",
-  "imgSelect":"./image/background-rain.jpg",
-  "animateChk":0.0,
-  "lightningChk":0.0,
-  "postProcessingChk":1.0,
-  "fpsLock":33
-}
 var rainstarted = false;
 var glslobj;
 var canvas;
@@ -305,20 +290,20 @@ function hexToRgb(hex) {
 }
 
 function initopt(){
-  tmp = hexToRgb(opt["overlayColor"]);
-  glslobj.setUniform("u_blur", opt["blurIntensity"]);
-  glslobj.setUniform("u_blurIterations",opt["blurQuality"]);
-  glslobj.setUniform("u_rainintensity",opt["rainIntensity"]);
-  glslobj.setUniform("u_speed",opt["rainSpeed"]);
-  glslobj.setUniform("u_brightness",opt["brightness"]);
-  glslobj.setUniform("u_rainNormal",opt["rainNormal"]);
-  glslobj.setUniform("u_rainZoom",opt["rainZoom"]);
+  tmp = hexToRgb(rainopt["overlayColor"]);
+  glslobj.setUniform("u_blur", rainopt["blurIntensity"]);
+  glslobj.setUniform("u_blurIterations",rainopt["blurQuality"]);
+  glslobj.setUniform("u_rainintensity",rainopt["rainIntensity"]);
+  glslobj.setUniform("u_speed",rainopt["rainSpeed"]);
+  glslobj.setUniform("u_brightness",rainopt["brightness"]);
+  glslobj.setUniform("u_rainNormal",rainopt["rainNormal"]);
+  glslobj.setUniform("u_rainZoom",rainopt["rainZoom"]);
   glslobj.setUniform("u_overlayColor", tmp.r / 255, tmp.g / 255, tmp.b / 255);
-  glslobj.setUniform("u_tex0",opt["imgSelect"]);
-  glslobj.setUniform("u_animate",opt["animateChk"]);
-  glslobj.setUniform("u_islighting",opt["lightningChk"]);
-  glslobj.setUniform("u_pp",opt["postProcessingChk"]);
-  responseTime = opt["fpsLock"];
+  glslobj.setUniform("u_tex0",rainopt["imgSelect"]);
+  glslobj.setUniform("u_animate",rainopt["animateChk"]);
+  glslobj.setUniform("u_islighting",rainopt["lightningChk"]);
+  glslobj.setUniform("u_pp",rainopt["postProcessingChk"]);
+  responseTime = rainopt["fpsLock"];
 }
 
 window.onload = ()=>{
