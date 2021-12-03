@@ -1,3 +1,14 @@
+//page
+var wallpapertitle = "Iridium ~ wallpaper for class18";
+//backgrounds
+var normalpic = "./image/background-normal.jpg";
+var snowpic = "./image/background-snow.jpg";
+var rainpic = "./image/background-rain.jpg";
+//apis
+var hitokotourl = "https://v1.hitokoto.cn?&c=d&c=i";
+var weatherurl = "";
+var realtimerainurl = "";
+//effects
 var snowtmp = 16;
 var allowrain = true;
 var allowsnow = true;
@@ -18,6 +29,3 @@ var rainopt = {
     "postProcessingChk":1.0,
     "fpsLock":33
 };
-var hitokotourl = "https://v1.hitokoto.cn?&c=d&c=i";
-var weatherurl = "https://www.tianqiapi.com/free/day?appid=82111384&appsecret=WdtA5PiQ&unescape=1";
-var realtimerainurl = "https://v0.yiketianqi.com/api?version=v11&appid=82111384&appsecret=WdtA5PiQ&lng=114.488074&lat=23.107702&unescape=1";
