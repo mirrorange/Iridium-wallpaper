@@ -1,7 +1,3 @@
-function PrefixZero(num, n) {
-    return (Array(n).join(0) + num).slice(-n);
-}
-
 function countdown () {
     var nowtime = new Date(),  //获取当前时间
         endtime = new Date(endtimestr);  //定义结束时间
@@ -10,7 +6,7 @@ function countdown () {
         lefth = Math.floor(lefttime/(1000*60*60)%24),  //计算小时数
         leftm = Math.floor(lefttime/(1000*60)%60),  //计算分钟数
         lefts = Math.floor(lefttime/1000%60);  //计算秒数
-        var countdown = document.getElementById("countdown")
+        var countdown = document.getElementById("countdown");
         countdown.innerText = countdownstr + leftd + "天" + lefth + "小时" + leftm + "分" + lefts + "秒";  //返回倒计时的字符串
 }
 

@@ -1,5 +1,7 @@
 //page
 var wallpapertitle = "Iridium ~ wallpaper for class18";
+var countdownposition = "page";
+var countcsstext = "position:absolute;left:50%;top:18%;transform:translate(-50%,-50%);font-size:x-large;color:white";
 //countdown
 var endtimestr = "2022/6/7 08:00:00";
 var countdownstr = "距离高考还有：";
@@ -9,8 +11,8 @@ var snowpic = "./image/background-snow.jpg";
 var rainpic = "./image/background-rain.jpg";
 //apis
 var hitokotourl = "https://v1.hitokoto.cn?&c=d&c=i";
-var weatherurl = "https://www.tianqiapi.com/free/day?appid=82111384&unescape=1";
-var realtimerainurl = "https://v0.yiketianqi.com/api?version=v11&appid=82111384&lng=114.488074&lat=23.107702&unescape=1";
+var weatherurl = "https://www.tianqiapi.com/free/day?unescape=1";
+var realtimerainurl = "https://v0.yiketianqi.com/api?version=v11&lng=114.488074&lat=23.107702&unescape=1";
 //effects
 var snowtmp = 16;
 var allowrain = true;
