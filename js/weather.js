@@ -5,11 +5,11 @@ function weather() {
       wea = document.getElementById("wea_text");
       wea.innerText = data.wea + " " + data.win + data.win_speed + " " + data.tem + "℃"
       if ((data.tem <= snowtmp && !snow.isstarted && allowsnow) || forcerain) {
-        document.getElementById("backgroundimg").setAttribute("src", snowpic);
+        setbackground(snowpic);
         startSnow()
       }
       else if (data.tem > snowtmp && snow.isstarted && !forcerain) {
-        document.getElementById("backgroundimg").setAttribute("src", normalpic);
+        setbackground(rainpic);
         stopSnow()
       }
       if ((data.wea_img == "yu" && !rainstarted && allowrain) || forcerain) {
