@@ -257,7 +257,8 @@ var canvas;
 function startRain() {
   if (!rainstarted) {
     canvas = document.createElement("canvas");
-    canvas.id = "canvas"
+    canvas.id = "canvas";
+    canvas.style.cssText = canvascsstext;
     document.getElementById("background").appendChild(canvas);
     var options = {
       fragmentString: frag,
@@ -299,7 +300,7 @@ function initopt(){
   glslobj.setUniform("u_rainNormal",rainopt["rainNormal"]);
   glslobj.setUniform("u_rainZoom",rainopt["rainZoom"]);
   glslobj.setUniform("u_overlayColor", tmp.r / 255, tmp.g / 255, tmp.b / 255);
-  glslobj.setUniform("u_tex0",rainpic);
+  glslobj.setUniform("u_tex0",rainbackground);
   glslobj.setUniform("u_animate",rainopt["animateChk"]);
   glslobj.setUniform("u_islighting",rainopt["lightningChk"]);
   glslobj.setUniform("u_pp",rainopt["postProcessingChk"]);

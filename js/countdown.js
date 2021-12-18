@@ -10,4 +10,7 @@ function countdown () {
         countdown.innerText = countdownstr + leftd + "天" + lefth + "小时" + leftm + "分" + lefts + "秒";  //返回倒计时的字符串
 }
 
-self.setInterval("countdown()",1000);
+if(countdownenabled)
+{
+    self.setInterval("countdown()",1000);
+}
