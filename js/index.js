@@ -26,21 +26,27 @@ function setbackground(backgroundurl) {
     }
 }
 
+function loadplugin(plugin)
+{
+    plugin["css"].forEach(element => {
+        cssele = document.createElement("link");
+        cssele.setAttribute("rel","stylesheet");
+        cssele.setAttribute("href",element);
+        document.getElementsByTagName("head")[0].appendChild(cssele)
+    });
+    plugin["js"].forEach(element => {
+        jsele = document.createElement("script");
+        jsele.setAttribute("src",element);
+        document.getElementsByTagName("body")[0].appendChild(jsele)
+    });
+}
+
 //title
 document.title = wallpapertitle;
 document.getElementsByClassName("mdl-layout-title")[0].innerHTML = wallpapertitle;
 //background
 setbackground(normalbackground);
-//countdown
-if (countdownenabled) {
-    var countdownele = document.createElement("span");
-    countdownele.id = "countdown";
-    if (countdownposition == "header") {
-        countdownele.className = "mdl-layout-title";
-        document.getElementsByClassName("mdl-layout-spacer")[0].after(countdownele);
-    }
-    if (countdownposition == "page") {
-        countdownele.style.cssText = countcsstext;
-        document.getElementsByClassName("page-content")[0].appendChild(countdownele);
-    }
-}
+//plugins
+pluginlist.forEach(element => {
+    loadplugin(element);
+});
