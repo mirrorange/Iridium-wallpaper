@@ -78,7 +78,7 @@ Snow.prototype.setStyle = function () {
     opacity: ${this.opacity};
     background-image: radial-gradient(#fff 0%, rgba(255, 255, 255, 0) 60%);
     border-radius: 50%;
-    z-index: 9999999999999;
+    z-index: 3;
     pointer-events: none;
     transform: translate(${this.x}px, ${this.y}px) ${this.getRotate(this.sy, this.sx)};
 `
@@ -146,14 +146,14 @@ Snows.prototype.createSnows = function () {
 }
 
 Snows.prototype.moveSnow = function () {
-    window.setTimeout(() => {
+    window.requestAnimationFrame(() => {
         this.snowList.forEach((item) => {
             item.move();
         })
         if (this.isstarted) {
             this.moveSnow();
         }
-    }, Math.round(1000 / snowfps));
+    });
 }
 
 Snows.prototype.stopSnow = function () {

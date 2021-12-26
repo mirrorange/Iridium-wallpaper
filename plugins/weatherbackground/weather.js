@@ -4,11 +4,11 @@ function weather() {
     .then(data => {
       wea = document.getElementById("wea_text");
       wea.innerText = data.wea + " " + data.win + data.win_speed + " " + data.tem + "℃"
-      if ((data.tem <= snowtmp && !snow.isstarted && allowsnow) || forcerain) {
+      if ((data.tem <= snowtmp && !snow.isstarted && allowsnow) || forcesnow) {
         setbackground(snowbackground);
         startSnow()
       }
-      else if (data.tem > snowtmp && snow.isstarted && !forcerain) {
+      else if (data.tem > snowtmp && snow.isstarted && !forcesnow) {
         setbackground(normalbackground);
         stopSnow()
       }

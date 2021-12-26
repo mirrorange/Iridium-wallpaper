@@ -38,3 +38,9 @@ var pluginlist = [
         ]
     }
 ];
+var applist = [
+    {
+        "name":"辩论赛计时器",
+        "url":"./apps/debatetimer/debatetimer.html"
+    }
+]
