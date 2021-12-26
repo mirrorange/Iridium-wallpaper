@@ -1,4 +1,3 @@
-hitokoto()
 function hitokoto() {
   fetch(hitokotourl)
     .then(response => response.json())
@@ -11,7 +10,12 @@ function hitokoto() {
     })
     .catch(console.error);
 }
-if (hitokotoenabled) {
-  document.getElementsByClassName("page-content")[0].innerHTML += hitikotohtml;
-  self.setInterval("hitokoto()", hitokototime);
+
+function hitokotoinit()
+{
+  if (hitokotoenabled) {
+    document.getElementsByClassName("page-content")[0].innerHTML += hitikotohtml;
+    hitokoto()
+    self.setInterval("hitokoto()", hitokototime);
+  }
 }

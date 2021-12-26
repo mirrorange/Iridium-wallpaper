@@ -26,7 +26,7 @@ function setbackground(backgroundurl) {
     }
 }
 
-function seriesLoadScripts(scripts) {
+function seriesLoadScripts(scripts,callbacks) {
     if (typeof (scripts) !== 'object') {
         var scripts = [scripts];
     }
@@ -46,6 +46,13 @@ function seriesLoadScripts(scripts) {
                 if (i !== last) {
                     recursiveLoad(i + 1);
                 }
+                else
+                {
+                    loadopts();
+                    callbacks.forEach(element => {
+                        window[element]();
+                    });
+                }
             }
         }
         // 同步
@@ -62,7 +69,7 @@ function loadplugin(plugin) {
         cssele.setAttribute("href", element);
         document.getElementsByTagName("head")[0].appendChild(cssele)
     });
-    seriesLoadScripts(plugin["js"]);
+    seriesLoadScripts(plugin["js"],plugin["initcallbacks"]);
 }
 
 function loadapp(app) {
@@ -90,6 +97,34 @@ function openapp() {
 function closeapp() {
     document.getElementById("appiframe").remove();
     document.getElementById("coverdiv").remove();
+}
+
+function loadopts() {
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split("=");
+        if(/^-?\\d+$/.test(pair[1]))
+        {
+            window[pair[0]] = parseInt(pair[1]);
+        }
+        else if(/^(-?\\d+)(\\.\\d+)?$/.test(pair[1]))
+        {
+            window[pair[0]] = parseFloat(pair[1]);
+        }
+        else if(pair[1] == "false")
+        {
+            window[pair[0]] = false;
+        }
+        else if(pair[1] == "true")
+        {
+            window[pair[0]] = true;
+        }
+        else
+        {
+            window[pair[0]] = pair[1];
+        }
+    }
 }
 
 //title

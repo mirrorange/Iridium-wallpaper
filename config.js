@@ -15,7 +15,10 @@ var pluginlist = [
             "./plugins/weatherbackground/rain.js",
             "./plugins/weatherbackground/snow.js",
             "./plugins/weatherbackground/weather.js"],
-        "css":[]
+        "css":[],
+        "initcallbacks":[
+            "weatherinit"
+        ]
     },
     {
         "name": "countdown",
@@ -25,6 +28,9 @@ var pluginlist = [
         ],
         "css":[
             "./plugins/countdown/countdown.css"
+        ],
+        "initcallbacks":[
+            "countdowninit"
         ]
     },
     {
@@ -35,6 +41,9 @@ var pluginlist = [
         ],
         "css":[
             "./plugins/hitokoto/hitokoto.css"
+        ],
+        "initcallbacks":[
+            "hitokotoinit"
         ]
     }
 ];
