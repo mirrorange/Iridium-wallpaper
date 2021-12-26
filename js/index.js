@@ -126,7 +126,8 @@ function loadopts() {
         }
     }
 }
-
+//opts
+loadopts();
 //title
 document.title = wallpapertitle;
 document.getElementsByClassName("mdl-layout-title")[0].innerHTML = wallpapertitle;
