@@ -1,3 +1,5 @@
+var backgroundsetted = false;
+
 function setbackground(backgroundurl) {
     ext = backgroundurl.substr(backgroundurl.lastIndexOf("."));
     background = document.getElementById("background");
@@ -24,6 +26,7 @@ function setbackground(backgroundurl) {
         backgroundvideo.loop = true;
         background.appendChild(backgroundvideo);
     }
+    backgroundsetted = true;
 }
 
 function seriesLoadScripts(scripts,callbacks) {
@@ -37,7 +40,6 @@ function seriesLoadScripts(scripts,callbacks) {
     var recursiveLoad = function (i) {
         s[i] = document.createElement('script');
         s[i].setAttribute('type', 'text/javascript');
-        // Attach handlers for all browsers
         // 异步
         s[i].onload = s[i].onreadystatechange = function () {
             if (!/*@cc_on!@*/0 || this.readyState === 'loaded' || this.readyState === 'complete') {
@@ -131,12 +133,15 @@ loadopts();
 //title
 document.title = wallpapertitle;
 document.getElementsByClassName("mdl-layout-title")[0].innerHTML = wallpapertitle;
-//background
-setbackground(normalbackground);
 //plugins
 pluginlist.forEach(element => {
     loadplugin(element);
 });
+//background
+if(!backgroundsetted)
+{
+    setbackground(normalbackground);
+}
 //apps
 if (applist.length != 0) {
     var appbutton = document.createElement("button");
