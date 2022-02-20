@@ -29,6 +29,31 @@ function setbackground(backgroundurl) {
     backgroundsetted = true;
 }
 
+function parallelLoadScripts(scripts,callbacks) {
+    if(typeof(scripts) != "object") var scripts = [scripts];
+    var HEAD = document.getElementsByTagName("head").item(0) || document.documentElement, s = new Array(), loaded = 0;
+    for(var i=0; i<scripts.length; i++) {
+        s[i] = document.createElement("script");
+        s[i].setAttribute("type","text/javascript");
+        s[i].onload = s[i].onreadystatechange = function() { //Attach handlers for all browsers
+            if(!/*@cc_on!@*/0 || this.readyState == "loaded" || this.readyState == "complete") {
+                loaded++;
+                this.onload = this.onreadystatechange = null; this.parentNode.removeChild(this); 
+                if(loaded == scripts.length && typeof(callback) == "function")
+                {
+                    loadopts();
+                    callbacks.forEach(element => {
+                        window[element]();
+                    });
+                }
+            }
+        };
+        s[i].setAttribute("src",scripts[i]);
+        HEAD.appendChild(s[i]);
+    }
+ }
+
+/*
 function seriesLoadScripts(scripts,callbacks) {
     if (typeof (scripts) !== 'object') {
         var scripts = [scripts];
@@ -42,7 +67,7 @@ function seriesLoadScripts(scripts,callbacks) {
         s[i].setAttribute('type', 'text/javascript');
         // 异步
         s[i].onload = s[i].onreadystatechange = function () {
-            if (!/*@cc_on!@*/0 || this.readyState === 'loaded' || this.readyState === 'complete') {
+            if (!0 || this.readyState === 'loaded' || this.readyState === 'complete') {
                 this.onload = this.onreadystatechange = null;
                 this.parentNode.removeChild(this);
                 if (i !== last) {
@@ -63,6 +88,7 @@ function seriesLoadScripts(scripts,callbacks) {
     };
     recursiveLoad(0);
 }
+*/
 
 function loadplugin(plugin) {
     plugin["css"].forEach(element => {
