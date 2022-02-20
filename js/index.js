@@ -97,7 +97,7 @@ function loadplugin(plugin) {
         cssele.setAttribute("href", element);
         document.getElementsByTagName("head")[0].appendChild(cssele)
     });
-    seriesLoadScripts(plugin["js"],plugin["initcallbacks"]);
+    parallelLoadScripts(plugin["js"],plugin["initcallbacks"]);
 }
 
 function loadapp(app) {
