@@ -4,19 +4,19 @@ function weather() {
     .then(data => {
       wea = document.getElementById("wea_text");
       wea.innerText = data.wea + " " + data.win + data.win_speed + " " + data.tem + "℃"
-      if ((data.tem <= snowtmp && !snow.isstarted && allowsnow) || forcesnow) {
+      if ((data.wea_img == "yu" && !rainstarted && allowrain) || forcerain) {
+        startRain();
+      }
+      else if (data.wea_img != "yu" && rainstarted && !forcerain || (!allowrain && !forcerain)) {
+        stopRain();
+      }
+      if ((data.tem <= snowtmp && !snow.isstarted && allowsnow && !rainstarted) || forcesnow) {
         setbackground(snowbackground);
         startSnow()
       }
       else if (data.tem > snowtmp && snow.isstarted && !forcesnow || (!allowsnow && !forcesnow)) {
         setbackground(normalbackground);
         stopSnow()
-      }
-      if ((data.wea_img == "yu" && !rainstarted && allowrain) || forcerain) {
-        startRain();
-      }
-      else if (data.wea_img != "yu" && rainstarted && !forcerain || (!allowrain && !forcerain)) {
-        stopRain();
       }
     })
     .catch(console.error);

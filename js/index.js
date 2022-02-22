@@ -39,7 +39,7 @@ function parallelLoadScripts(scripts,callbacks) {
             if(!/*@cc_on!@*/0 || this.readyState == "loaded" || this.readyState == "complete") {
                 loaded++;
                 this.onload = this.onreadystatechange = null; this.parentNode.removeChild(this); 
-                if(loaded == scripts.length && typeof(callback) == "function")
+                if(loaded == scripts.length)
                 {
                     loadopts();
                     callbacks.forEach(element => {
