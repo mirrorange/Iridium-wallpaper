@@ -51,5 +51,9 @@ var applist = [
     {
         "name":"辩论赛计时器",
         "url":"./apps/debatetimer/debatetimer.html"
+    },
+    {
+        "name":"天气",
+        "url":"https://tianqi.qq.com/index.htm"
     }
 ]
