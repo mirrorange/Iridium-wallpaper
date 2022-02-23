@@ -158,7 +158,9 @@ function loadopts() {
 loadopts();
 //title
 document.title = wallpapertitle;
-document.getElementsByClassName("mdl-layout-title")[0].innerHTML = wallpapertitle;
+var titleele = document.getElementsByClassName("mdl-layout-title")[0];
+titleele.innerHTML = wallpapertitle;
+titleele.ondblclick = ()=>{location.reload()};
 //plugins
 pluginlist.forEach(element => {
     loadplugin(element);
