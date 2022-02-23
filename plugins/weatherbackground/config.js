@@ -7,7 +7,7 @@ var realtimerainupdatetime = 900000;
 var snowbackground = "./backgrounds/background-snow.jpg";
 var rainbackground = "../../backgrounds/background-rain.jpg"; //pictures only
 //effects
-var snowtmp = 16;
+var snowtmp = 10;
 var allowrain = true;
 var allowsnow = true;
 var forcerain = false;

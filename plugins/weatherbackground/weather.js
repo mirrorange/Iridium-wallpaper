@@ -14,7 +14,7 @@ function weather() {
         setbackground(snowbackground);
         startSnow()
       }
-      else if (data.tem > snowtmp && snow.isstarted && !forcesnow || (!allowsnow && !forcesnow)) {
+      else if (data.tem > snowtmp && snow.isstarted && !forcesnow || (!allowsnow && !forcesnow) || rainstarted) {
         setbackground(normalbackground);
         stopSnow()
       }
