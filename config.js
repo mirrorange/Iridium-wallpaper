@@ -18,7 +18,8 @@ var pluginlist = [
         "css":[],
         "initcallbacks":[
             "weatherinit"
-        ]
+        ],
+        "loadmode":"parallel"
     },
     {
         "name": "countdown",
@@ -31,7 +32,8 @@ var pluginlist = [
         ],
         "initcallbacks":[
             "countdowninit"
-        ]
+        ],
+        "loadmode":"parallel"
     },
     {
         "name": "hitikoto",
@@ -44,7 +46,22 @@ var pluginlist = [
         ],
         "initcallbacks":[
             "hitokotoinit"
-        ]
+        ],
+        "loadmode":"parallel"
+    },
+    {
+        "name": "firework",
+        "js": [
+            "./js/jquery.min.js",
+            "./plugins/firework/firework.js"
+        ],
+        "css":[
+            "./plugins/firework/firework.css"
+        ],
+        "initcallbacks":[
+            "fireworkinit"
+        ],
+        "loadmode":"parallel"
     }
 ];
 var applist = [

@@ -1,0 +1,8 @@
+.fireworkCanvas{
+    cursor:crosshair;
+    display:block;
+    left:0;
+    position:absolute;
+    top:0;
+    z-index:20
+}

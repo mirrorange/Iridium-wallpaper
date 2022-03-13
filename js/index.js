@@ -53,7 +53,6 @@ function parallelLoadScripts(scripts,callbacks) {
     }
  }
 
-/*
 function seriesLoadScripts(scripts,callbacks) {
     if (typeof (scripts) !== 'object') {
         var scripts = [scripts];
@@ -67,7 +66,7 @@ function seriesLoadScripts(scripts,callbacks) {
         s[i].setAttribute('type', 'text/javascript');
         // 异步
         s[i].onload = s[i].onreadystatechange = function () {
-            if (!0 || this.readyState === 'loaded' || this.readyState === 'complete') {
+            if (!/*@cc_on!@*/0 || this.readyState === 'loaded' || this.readyState === 'complete') {
                 this.onload = this.onreadystatechange = null;
                 this.parentNode.removeChild(this);
                 if (i !== last) {
@@ -88,7 +87,6 @@ function seriesLoadScripts(scripts,callbacks) {
     };
     recursiveLoad(0);
 }
-*/
 
 function loadplugin(plugin) {
     plugin["css"].forEach(element => {
@@ -97,7 +95,14 @@ function loadplugin(plugin) {
         cssele.setAttribute("href", element);
         document.getElementsByTagName("head")[0].appendChild(cssele)
     });
-    parallelLoadScripts(plugin["js"],plugin["initcallbacks"]);
+    if(plugin["loadmode"] == "parallel")
+    {
+        parallelLoadScripts(plugin["js"],plugin["initcallbacks"]);
+    }
+    else if(plugin["loadmode"] == "series")
+    {
+        seriesLoadScripts(plugin["js"],plugin["initcallbacks"]);
+    }
 }
 
 function loadapp(app) {
