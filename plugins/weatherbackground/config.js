@@ -1,6 +1,6 @@
 //apis
 var weatherurl = "https://www.yiketianqi.com/free/day?appid=82111384&appsecret=WdtA5PiQ&unescape=1";
-var realtimerainurl = "https://v0.yiketianqi.com/api?version=v11&appid=25324159&appsecret=zJ4tNNR7&lng=114.488074&lat=23.107702&unescape=1";
+var realtimerainurl = "https://v0.yiketianqi.com/api?version=v11&appid=19495274&appsecret=T19y5AnC&lng=114.488074&lat=23.107702&unescape=1";
 var weatherupdatetime = 300000;
 var realtimerainupdatetime = 900000;
 //backgrounds
