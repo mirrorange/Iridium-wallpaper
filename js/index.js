@@ -137,25 +137,27 @@ function loadopts() {
     var vars = query.split("&");
     for (var i = 0; i < vars.length; i++) {
         var pair = vars[i].split("=");
-        if(/^-?\\d+$/.test(pair[1]))
+        var name = pair[0]
+        var value = vars[i].replace(name + "=","")
+        if(/^-?\\d+$/.test(value))
         {
-            window[pair[0]] = parseInt(pair[1]);
+            window[name] = parseInt(value);
         }
-        else if(/^(-?\\d+)(\\.\\d+)?$/.test(pair[1]))
+        else if(/^(-?\\d+)(\\.\\d+)?$/.test(value))
         {
-            window[pair[0]] = parseFloat(pair[1]);
+            window[name] = parseFloat(value);
         }
-        else if(pair[1] == "false")
+        else if(value == "false")
         {
-            window[pair[0]] = false;
+            window[name] = false;
         }
-        else if(pair[1] == "true")
+        else if(value == "true")
         {
-            window[pair[0]] = true;
+            window[name] = true;
         }
         else
         {
-            window[pair[0]] = pair[1];
+            window[name] = value;
         }
     }
 }
